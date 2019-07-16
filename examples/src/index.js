@@ -1,7 +1,7 @@
 import React from 'react';
 import { render} from 'react-dom';
-import MyComponent from '../../src';
+import MiniArea from '../../src/components';
 const App = () => (
- <MyComponent />
+ <MiniArea />
 );
 render(<App />, document.getElementById("root"));
