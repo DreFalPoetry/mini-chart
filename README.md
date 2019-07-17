@@ -1,4 +1,4 @@
-## Mini-chart
+## mini-chart-line
 
 #### 在表格中使用的小面积图
 
