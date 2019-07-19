@@ -21,7 +21,7 @@
   margin-left: -7px;
 }
 
-.miniChartContent{
+.miniChartWrapper{
   display: flex;
   justify-content: center;
 }
