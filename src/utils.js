@@ -17,7 +17,3 @@ export function fetchingData(url){
     return []
   })
 }
-
-export function isFetching(){
-  return window.isFetching
-};
