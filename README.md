@@ -9,10 +9,10 @@ npm install mini-chart-line --save
 import {MiniArea} from 'mini-chart-line'
 使用：
  render(){
-	const {chartData} = this.state;
     return (
         <MiniArea 
-            data={chartData} 
+			axis_x={['1s','10s','30s','1min']}
+            data={['10','20','30','40']} 
             width={width}
             height={height}
         />
@@ -20,9 +20,10 @@ import {MiniArea} from 'mini-chart-line'
 }
 
 注解：
-data -- Array[{x:'',y:''}]
-width -- 宽度
-height -- 高度
+data -- Array,Y轴的数据信息 
+axis_x -- Array,X轴的数据信息
+width -- int 宽度
+height -- int 高度
 
 ````
 
