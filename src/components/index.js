@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Chart,
   Geom,
+  Tooltip
 } from "bizcharts";
 import './styles.css';
 
@@ -12,7 +13,7 @@ class MiniArea extends React.Component {
   }
   
 	render() {
-    const {data,axis_x} = this.props;
+    const {data,axis_x,tooltip,cursor } = this.props;
     let chartData = [];
     if(data && data.length){
       chartData = data.map((v,index)=>{
@@ -23,8 +24,14 @@ class MiniArea extends React.Component {
       <div className="miniChartWrapper">
         {
           chartData && chartData.length ? (
-            <Chart height={this.props.height || 35} width={this.props.width || 100} data={chartData} padding={0}>
-              <Geom type="area" position="x*y"  color="blue" active={false}/>
+            <Chart 
+              height={this.props.height || 35} 
+              width={this.props.width || 100} 
+              data={chartData} 
+              padding={0} 
+            >
+              {tooltip ? <Tooltip/> : null}
+              <Geom type="area" position="x*y" shape="smooth" color="blue" active={false}  style={cursor ? {cursor:'pointer!important'} : null}/>
             </Chart>
           ) : '--'
         }

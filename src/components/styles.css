@@ -25,3 +25,11 @@
   display: flex;
   justify-content: center;
 }
+
+.miniChartWrapper canvas{
+  cursor: pointer!important;
+}
+
+.g2-tooltip {
+  pointer-events:none !important
+}
