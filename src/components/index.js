@@ -30,7 +30,13 @@ class MiniArea extends React.Component {
               data={chartData} 
               padding={0} 
             >
-              {tooltip ? <Tooltip/> : null}
+              {tooltip ?(
+                <Tooltip 
+                  inPlot={false} 
+                  useHtml 
+                  itemTpl = '<tr><td>{value}%</td></tr>'
+                />
+              )  : null}
               <Geom type="area" position="x*y" shape="smooth" color="blue" active={false}  style={cursor ? {cursor:'pointer!important'} : null}/>
             </Chart>
           ) : '--'
