@@ -28,4 +28,8 @@ height -- int 高度
 ````
 
 
+#### 1.23.2 添加recharts
+#### 1.23.4 设置recharts 替换bizcharts 功能相同
+
+
 

@@ -33,3 +33,6 @@
 .g2-tooltip {
   pointer-events:none !important
 }
+.recharts-surface{
+  cursor: pointer;
+}
