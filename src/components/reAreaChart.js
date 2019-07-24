@@ -18,7 +18,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default class ReAreaCharts extends PureComponent {
   render() {
-    const {data,axis_x,tooltip,cursor } = this.props;
+    const {data,axis_x,tooltip,strokeColor,fillColor,width,height } = this.props;
     let chartData = [];
     if(data && data.length){
       chartData = data.map((v,index)=>{
@@ -30,8 +30,8 @@ export default class ReAreaCharts extends PureComponent {
         {
           chartData && chartData.length ? (
             <AreaChart
-              width={100}
-              height={35}
+              width={width || 100}
+              height={height || 35}
               data={chartData}
               margin={{
                 top: 0, right: 0, left: 0, bottom: 0,
@@ -40,7 +40,7 @@ export default class ReAreaCharts extends PureComponent {
               {tooltip ?(
                 <Tooltip content={<CustomTooltip />}/>
                ) : null}
-              <Area type="monotone" dataKey="point" stroke="#556cd6" fill="#40a9ff" fillOpacity={1}/>
+              <Area type="monotone" dataKey="point" stroke={strokeColor || "#556cd6"} fill={fillColor||"#40a9ff"} fillOpacity={1}/>
             </AreaChart>
           ) : '--'
         }
