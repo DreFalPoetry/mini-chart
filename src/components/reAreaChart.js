@@ -8,7 +8,8 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
     return (
       <div className="custom-tooltip">
-        <p className="label">{`${payload[0].payload.name}：${payload[0].value}%`}</p>
+        <div className="label">{`${payload[0].payload.name}`}</div>
+        <div>{`${payload[0].value}%`}</div>
       </div>
     );
   }
