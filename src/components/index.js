@@ -1,51 +1,51 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import {
-  Chart,
-  Geom,
-  Tooltip
-} from "bizcharts";
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
+} from 'recharts';
 import './styles.css';
 
-class MiniArea extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {}
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active) {
+    return (
+      <div className="custom-tooltip">
+        <div className="label">{`${payload[0].payload.name}`}</div>
+        <div>{`${payload[0].value}%`}</div>
+      </div>
+    );
   }
-  
-	render() {
-    const {data,axis_x,tooltip,cursor } = this.props;
+
+  return null;
+};
+
+export default class ReAreaCharts extends PureComponent {
+  render() {
+    const {data,axis_x,tooltip,strokeColor,fillColor,width,height } = this.props;
     let chartData = [];
     if(data && data.length){
       chartData = data.map((v,index)=>{
-        return {x:axis_x[index],y:v}
+        return {"name":axis_x[index],"point":v}
       })
     }
     return (
-      <div className="miniChartWrapper">
+      <div className="miniChartWrapper"> 
         {
           chartData && chartData.length ? (
-            <Chart 
-              height={this.props.height || 35} 
-              width={this.props.width || 100} 
-              data={chartData} 
-              padding={0} 
+            <AreaChart
+              width={width || 100}
+              height={height || 35}
+              data={chartData}
+              margin={{
+                top: 0, right: 0, left: 0, bottom: 0,
+              }}
             >
               {tooltip ?(
-                <Tooltip 
-                  inPlot={false} 
-                  useHtml 
-                  itemTpl = '<tr><td>{value}%</td></tr>'
-                />
-              )  : null}
-              <Geom type="area" position="x*y" shape="smooth" color="blue" active={false}  style={cursor ? {cursor:'pointer!important'} : null}/>
-            </Chart>
+                <Tooltip content={<CustomTooltip />}/>
+               ) : null}
+              <Area type="monotone" dataKey="point" stroke={strokeColor || "#556cd6"} fill={fillColor||"#40a9ff"} fillOpacity={1}/>
+            </AreaChart>
           ) : '--'
         }
       </div>
-    )
-	}
+    );
+  }
 }
-
-MiniArea.propTypes = {}
-
-export default MiniArea

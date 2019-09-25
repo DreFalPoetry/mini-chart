@@ -8,33 +8,22 @@
 npm install mini-chart-line --save
 
 引入：
-import {MiniArea,ReAreaCharts} from 'mini-chart-line'
+import {ReAreaCharts} from 'mini-chart-line'
 使用：
-//1.MiniArea
- render(){
-    return (
-        <MiniArea 
-			axis_x={['1s','10s','30s','1min']}
-            data={['10','20','30','40']} 
-            width={width}
-            height={height}
-        />
-    )
-}
 
-//2.ReAreaCharts
- render(){
-    return (
-        <ReAreaCharts 
-			axis_x={['1s','10s','30s','1min']}
-            data={['10','20','30','40']} 
-            width={width}
-            height={height}
-            tooltip={true}
-            strokeColor={'#333'}
-            fillColor={'#333'}
-        />
-    )
+//ReAreaCharts
+render(){
+  return (
+    <ReAreaCharts 
+        axis_x={['1s','10s','30s','1min']}
+        data={['10','20','30','40']} 
+        width={width}
+        height={height}
+        tooltip={true}
+        strokeColor={'#333'}
+        fillColor={'#333'}
+    />
+  )
 }
 
 注解：
@@ -50,6 +39,7 @@ fillColor -- string,填充色
 
 #### 1.23.2 添加recharts
 #### 1.23.4 设置recharts 替换bizcharts 功能相同
+#### 1.23.7 删除bizcharts部分 
 
 
 

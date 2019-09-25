@@ -1,7 +1,5 @@
-import MiniArea from './components/index';
-import ReAreaCharts from './components/reAreaChart';
+import ReAreaCharts from './components';
 
 module.exports = {
-  MiniArea,
   ReAreaCharts
 }
