@@ -22,6 +22,7 @@ render(){
         tooltip={true}
         strokeColor={'#333'}
         fillColor={'#333'}
+        referenceLine={["1s","10s"]}
     />
   )
 }
@@ -34,6 +35,7 @@ height -- int 高度
 tooltip -- boolean[true,false] 显示tooltip
 strokeColor -- string,描边色
 fillColor -- string,填充色
+referenceLine -- Array 设置x轴的参考线
 ````
 
 

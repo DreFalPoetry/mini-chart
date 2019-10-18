@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
+  ReferenceLine
 } from 'recharts';
 import './styles.css';
 
@@ -19,7 +20,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default class ReAreaCharts extends PureComponent {
   render() {
-    const {data,axis_x,tooltip,strokeColor,fillColor,width,height } = this.props;
+    const {data,axis_x,tooltip,strokeColor,fillColor,width,height,referenceLine } = this.props;
     let chartData = [];
     if(data && data.length){
       chartData = data.map((v,index)=>{
@@ -38,9 +39,15 @@ export default class ReAreaCharts extends PureComponent {
                 top: 0, right: 0, left: 0, bottom: 0,
               }}
             >
+              <XAxis dataKey="name" hide={true}/>
               {tooltip ?(
                 <Tooltip content={<CustomTooltip />}/>
                ) : null}
+              {referenceLine && referenceLine.length ? (
+                referenceLine.map((item,ind)=>{
+                  return <ReferenceLine key={ind} x={item} stroke="red" strokeDasharray="3 3"/>
+                })
+              ) : null}
               <Area type="monotone" dataKey="point" stroke={strokeColor || "#556cd6"} fill={fillColor||"#40a9ff"} fillOpacity={1}/>
             </AreaChart>
           ) : '--'

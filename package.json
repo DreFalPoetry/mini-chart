@@ -1,6 +1,6 @@
 {
   "name": "mini-chart-line",
-  "version": "1.25.0",
+  "version": "1.26.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
